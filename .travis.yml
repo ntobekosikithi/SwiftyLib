@@ -1,11 +1,12 @@
-language: Swift
 
-osx_image: xcode10.2
-env:
-  matrix:
-    - TEST_SDK=iphonesimulator12.1 OS=12.1 NAME='iPhone XR'
-    - TEST_SDK=iphonesimulator12.1 OS=12.1 NAME='iPhone 7'
+ osx_image: xcode10.2
+language: objective-c
 
-after_success:
-  - slather
-  - bash <(curl -s https://codecov.io/bash) -f reports/cobertura.xml -X coveragepy -X gcov -X xcode
+xcode_project: SwiftyLib/SwiftyLib.xcodeproj
+xcode_scheme: SwiftyLib
+xcode_sdk: iphonesimulator12.2
+
+# whitelist
+branches:
+only:
+- master
